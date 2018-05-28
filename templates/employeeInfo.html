@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Login-Form-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Registration-Form-with-Photo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+{% endblock %}
+{% block inline_style %}
+    <style media="screen">
+        body
+        {
+            height:1029px;
+        }
+        h1
+        {
+            margin: auto;
+        }
+        label
+        {
+            font-weight: bold;
+        }
+        .hello{
+            width: 100%;
+            margin: auto;
+        }
+        .hello1{
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="jumbotron text-center hello" style="height:1025px;padding:14px; background-color:#274C44; color: white;">
+        <div class="hello1">
+            <br>
+            <h1>Employee Information</h1>
+            <br>
+            <form action="" method="post" >
+                <div class="form-group">
+                    <label class="control-label">Name</label>
+                    <input class="form-control" type="text" name="username" style="height:35px;" value="{{row['name']}}">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Salary/hour</label>
+                    <input class="form-control" type="text" name="salaryPerHour" style="height:35px;" value="{{row['salary_per_hr']}}" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Joining Date</label>
+                    <input class="form-control" type="text" style="height:35px;" value="{{row['joining_date']}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Job Title</label>
+                    <input class="form-control" type="text" name="jobTitle" style="height:35px;" value="{{row['jobtitle']}}" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Hours of overtime</label>
+                    <input class="form-control" type="text" style="height:35px;" value="{{prow['overtime']}}" read  only>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Pay in overtime</label>
+                    <input class="form-control" type="text" name="payInOvertime" style="height:35px;" value="{{row['pay_in_overtime']}}" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Max Casual leaves/month</label>
+                    <input class="form-control" type="text" name="maxCasualLeaves" style="height:35px;" value="{{row['max_casual_leaves']}}" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Casual leaves taken</label>
+                    <input class="form-control" type="text" style="height:35px;" value="{{prow['casualleaves']}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Max Sick leaves/month</label>
+                    <input class="form-control" type="text" name="maxSickLeaves" style="height:35px;" value="{{row['max_sick_leaves']}}" >
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sick leaves taken</label>
+                    <input class="form-control" type="text" style="height:35px;" value="{{prow['sickleaves']}}" readonly>
+                </div>
+                <div class="form-group" style="height:44px;">
+                    <div class="btn-group" role="group" style="height:44px;margin:10px;">
+                        {% if session.user_type==1 %}
+                            <a href="{{url_for('employeeInfo', username=row['email'])}}"><button name="action" value="update" class="btn btn-default" type="submit"  style="height:44px;margin:10px;">Update</button></a>
+                            <a href="{{url_for('employeeInfo', username=row['email'])}}"><button name="action" value="delete" class="btn btn-default" type="submit"  style="height:44px;margin:10px;">Delete</button></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

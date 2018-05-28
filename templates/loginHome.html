@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block inline_style %}
+    <style media="screen">
+      body {
+        background-image: url("{{ url_for('static', filename='assets/img/timecardwatch.jpg') }}");
+        background-repeat:no-repeat;
+        background-size:cover;
+      }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div style="margin:150px 350px;width:415px;padding:19px;background-color:#283b51;height:385px;">
+        <div class="container" style="width:156px;"><i class="glyphicon glyphicon-time" style="font-size:116px;"></i></div>
+
+        <div class="container" style="padding:13px;width:200px;height:76px;margin:60px 88.5px;"><a class="btn btn-primary" role="button" href="{{ url_for('login') }}" style="width:172px;height:46px;padding:11px;"><strong>Employer Login</strong></a></div>
+
+        <div class="container" style="padding:13px;width:200px;height:76px;"><a class="btn btn-primary" role="button" href="{{ url_for('login') }}" style="width:172px;height:46px;padding:11px;"><strong>Employee Login</strong></a></div>
+    </div>
+{% endblock %}

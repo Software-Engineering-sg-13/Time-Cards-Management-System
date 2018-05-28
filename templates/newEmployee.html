@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Login-Form-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Registration-Form-with-Photo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+{% endblock %}
+{% block inline_style %}
+<style media="screen">
+  body
+  {
+
+  }
+  .hello{
+      width: 100%;
+      margin: auto;
+  }
+  .hello1{
+      width: 80%;
+      margin: auto;
+  }
+</style>
+{% endblock %}
+{% block body %}
+    <div class="jumbotron text-center hello" style="background-color:#274C44;color:white;">
+        <div class="hello1">
+            <form method="post" >
+                <div class="illustration" style=""><i class="icon ion-ios-navigate" style="font-size:90px;margin:0px;padding:0px;"></i></div>
+                <div class="form-group"><label class="control-label">Name</label><input class="form-control" type="text" name="name" style="height:35px;"></div>
+                <div class="form-group"><label class="control-label">email</label><input class="form-control" type="email" name="email" style="height:35px;"></div>
+                <div class="form-group"><label class="control-label">Salary/hour</label><input class="form-control" type="number" name="salaryPerHour" style="height:35px;"></div>
+                <div class="form-group"><label class="control-label">Job Title</label><input class="form-control" type="text" name="jobTitle" style="height:35px;"></div>
+                <div class="form-group"><label class="control-label">Pay in overtime</label><input class="form-control" type="number" name="payInOvertime" style="height:35px;"></div>
+                <div class="form-group"><label class="control-label">Max Casual leaves/month</label><input class="form-control" type="number" name="maxCasualLeaves" style="height:35px;"></div>
+                <div class="form-group"><label class="control-label">Max Sick leaves/month</label><input class="form-control" type="number" name="maxSickLeaves" style="height:35px;"></div>
+                <div style="height:44px;">
+                    <div class="btn-group" role="group" style="height:44px;margin:10px 10px 10px 45px;">
+                        <button class="btn btn-default" type="submit" style="height:44px;margin:10px;width:75px;">Add</button>
+                      </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

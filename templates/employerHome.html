@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+    {% block inline_style %}
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Header-Dark.css') }}">
+    	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+    {% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="jumbotron text-center" style="background-color:#274C44; color: white;">
+        <h1 class="text-center">Welcome Admin !</h1>
+        <br>
+        <br>
+        <div style="font-size:18px;">
+            <label><strong>View Employee:&nbsp;	&nbsp;	</strong></label>
+            <a href="{{ url_for('viewEmployees') }}">
+                <button class="btn btn-default" type="button">
+                <strong>View Employee</strong>
+                </button>
+            </a>
+            <br>
+            <br>
+            <label><strong>Add Employee:&nbsp;	&nbsp;	</strong></label>
+            <a href="{{ url_for('newEmployee') }}">
+                <button class="btn btn-default" type="button"><strong>Add Employee</strong></button>
+            </a>
+            <br>
+            <br>
+        </div>
+    </div>
+{% endblock %}

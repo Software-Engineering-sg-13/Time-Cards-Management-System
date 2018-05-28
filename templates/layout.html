@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timecards Management</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap-theme.min.css') }}">
+    {% block links %}{% endblock %}
+    {% block inline_style %}{% endblock %}
+  </head>
+
+  <body background="/static/assets/img/temp.jpg"  style=" background-attachment: fixed;">
+    {% include 'includes/_navbar.html' %}
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    {% include 'includes/_messages.html' %}
+    {% block body %}{% endblock %}
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    {% include 'includes/_navbar.html' %}
+  </body>
+
+</html>

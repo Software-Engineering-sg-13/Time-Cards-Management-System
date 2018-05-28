@@ -1,0 +1,24 @@
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top">
+
+        <ul class="navbar-nav">
+          <li class="nav-item "><a class="nav-link" href="/home">Home </a></li>
+          {% if not session.logged_in %}
+          <li class="nav-item "><a class="nav-link " href="/login">Login</a></li>
+          {% endif %}
+
+          {% if session.logged_in %}
+          {% if session.user_type == 1 %}
+            <li class="nav-item "><a class="nav-link " href="{{ url_for('employerHome') }}">Dashboard</a></li>
+            <li class="nav-item "><a class="nav-link " href="{{ url_for('logout') }}">Logout</a></li>
+          {% else %}
+          {% if session.user_type == 2 %}
+            <li class="nav-item "><a class="nav-link " href="{{ url_for('employeeHome') }}">Dashboard</a></li>
+            <li class="nav-item "><a class="nav-link " href="{{ url_for('employeeInfo', username = session['username']) }}">Profile</a></li>
+            <li class="nav-item "><a class="nav-link " href="{{ url_for('employeeLogout') }}">Logout</a></li>
+          {% endif %}
+          {% endif %}
+            <li class="nav-item"><a class="nav-link " href = "{{url_for('updatePassword')}}">Update password</a></li>
+
+          {% endif %}
+        </ul>
+    </nav>

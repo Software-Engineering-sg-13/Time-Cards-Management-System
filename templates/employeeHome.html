@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block inline_style %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Header-Dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+    <br>
+    <div>
+        <div class="jumbotron text-center" style="background-color: #274C44;">
+            <h2 class="text-center" style="color:white;">Welcome {{session['username']}}</h2>
+            <br><br>
+            <div class="btn-group" role="group">
+                <a href = "{{url_for('checkin')}}"><button class="btn btn-default" type="button" style="font-size:16px;"><strong>Check In</strong></button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href = "{{url_for('checkout')}}"><button class="btn btn-default" type="button" style="font-size:16px;"><strong>Check Out</strong></button></a>
+            </div>
+        </div>
+        <div class="jumbotron text-center" style="background-color: #274C44;">
+            <h1 style="color:white;">Request Leave</h1>
+            <br>
+            <form action="" method="post">
+                <input type="date" style="padding-left:10px;" name="leave_date">
+                <br>
+                <br>
+                <div class="btn-group" role="group">
+                    <a href = "{{url_for('employeeHome')}}"><button name="action" value="id1" class="btn btn-default" type="submit" style="font-size:16px;"><strong>Request Casual Leave</strong></button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href = "{{url_for('employeeHome')}}"><button name="action" value="id2" class="btn btn-default" type="submit" style="font-size:16px;"><strong>Request Sick Leave</strong></button></a>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+{% endblock %}
